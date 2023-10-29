@@ -1,0 +1,19 @@
+const mongoose = require('mongoose')
+const {Schema} = mongoose
+
+
+const todoSchema = new Schema({
+  email:{
+    type:String,
+  },
+  todoSubject:{type:String},
+  todoDescription:{type:String},
+  todoStatus:{type:String, default:"New"},
+  todoDate:{type:Date, default:Date.now()},
+  updatedAt:{type:Date}
+},
+{timestamps: false, versionKey:false})
+
+const ToDo = mongoose.model('todo', todoSchema)
+
+module.exports = ToDo;
